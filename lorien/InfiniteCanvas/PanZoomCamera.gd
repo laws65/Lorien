@@ -84,6 +84,7 @@ func tool_event(event: InputEvent) -> void:
 
 # -------------------------------------------------------------------------------------------------
 func _do_pan(pan: Vector2) -> void:
+	pass
 	offset -= pan * _current_zoom_level
 	emit_signal("position_changed", offset)
 

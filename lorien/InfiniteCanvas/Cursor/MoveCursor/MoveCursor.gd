@@ -1,0 +1,2 @@
+extends BaseCursor
+class_name MoveCursor

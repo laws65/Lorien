@@ -8,7 +8,7 @@ const SUBDIVISION_THRESHHOLD := 50.0 # min length in pixels for when subdivision
 # -------------------------------------------------------------------------------------------------
 export var cursor_path: NodePath
 
-var _cursor: Sprite # This is a BaseCursor. Can't type it.
+var _cursor: TextureRect # This is a BaseCursor. Can't type it.
 var _canvas: Node # This is an InfinteCanvas. Can't type it though because of cyclic dependency bugs...
 var enabled := false setget set_enabled, get_enabled
 var performing_stroke := false

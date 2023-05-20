@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://InfiniteCanvas/InfiniteCanvas.gd" type="Script" id=1]
 [ext_resource path="res://InfiniteCanvas/PanZoomCamera.gd" type="Script" id=2]
@@ -15,6 +15,8 @@
 [ext_resource path="res://InfiniteCanvas/Tools/CircleTool.gd" type="Script" id=13]
 [ext_resource path="res://InfiniteCanvas/Tools/EraserTool.gd" type="Script" id=14]
 [ext_resource path="res://InfiniteCanvas/DebugDraw.gd" type="Script" id=15]
+[ext_resource path="res://InfiniteCanvas/MoveTool.gd" type="Script" id=16]
+[ext_resource path="res://InfiniteCanvas/Cursor/MoveCursor/MoveCursor.tscn" type="PackedScene" id=17]
 
 [sub_resource type="ShaderMaterial" id=1]
 shader = ExtResource( 10 )
@@ -27,32 +29,36 @@ script = ExtResource( 1 )
 
 [node name="BrushTool" type="Node" parent="."]
 script = ExtResource( 5 )
-cursor_path = NodePath("../Viewport/BrushCursor")
+cursor_path = NodePath("../Viewport/CanvasLayer/BrushCursor")
 pressure_curve = ExtResource( 3 )
 
 [node name="RectangleTool" type="Node" parent="."]
 script = ExtResource( 11 )
-cursor_path = NodePath("../Viewport/BrushCursor")
+cursor_path = NodePath("../Viewport/CanvasLayer/BrushCursor")
 pressure_curve = ExtResource( 3 )
 
 [node name="CircleTool" type="Node" parent="."]
 script = ExtResource( 13 )
-cursor_path = NodePath("../Viewport/BrushCursor")
+cursor_path = NodePath("../Viewport/CanvasLayer/BrushCursor")
 pressure_curve = ExtResource( 3 )
 
 [node name="EraserTool" type="Node" parent="."]
 script = ExtResource( 14 )
-cursor_path = NodePath("../Viewport/BrushCursor")
+cursor_path = NodePath("../Viewport/CanvasLayer/BrushCursor")
 
 [node name="LineTool" type="Node" parent="."]
 script = ExtResource( 6 )
-cursor_path = NodePath("../Viewport/BrushCursor")
+cursor_path = NodePath("../Viewport/CanvasLayer/BrushCursor")
 pressure_curve = ExtResource( 3 )
 
 [node name="SelectionTool" type="Node" parent="."]
 script = ExtResource( 7 )
-cursor_path = NodePath("../Viewport/SelectionCursor")
+cursor_path = NodePath("../Viewport/CanvasLayer/SelectionCursor")
 selection_rectangle_path = NodePath("../Viewport/SelectionRectangle")
+
+[node name="MoveTool" type="Node" parent="."]
+script = ExtResource( 16 )
+cursor_path = NodePath("../Viewport/CanvasLayer/MoveCursor")
 
 [node name="Viewport" type="Viewport" parent="."]
 size = Vector2( 1920, 1080 )
@@ -79,6 +85,11 @@ script = ExtResource( 15 )
 material = SubResource( 1 )
 script = ExtResource( 9 )
 
-[node name="BrushCursor" parent="Viewport" instance=ExtResource( 4 )]
+[node name="CanvasLayer" type="CanvasLayer" parent="Viewport"]
+visible = false
 
-[node name="SelectionCursor" parent="Viewport" instance=ExtResource( 8 )]
+[node name="BrushCursor" parent="Viewport/CanvasLayer" instance=ExtResource( 4 )]
+
+[node name="SelectionCursor" parent="Viewport/CanvasLayer" instance=ExtResource( 8 )]
+
+[node name="MoveCursor" parent="Viewport/CanvasLayer" instance=ExtResource( 17 )]

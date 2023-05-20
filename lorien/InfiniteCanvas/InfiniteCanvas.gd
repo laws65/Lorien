@@ -12,6 +12,7 @@ onready var _line_tool: LineTool = $LineTool
 onready var _circle_tool: CircleTool = $CircleTool
 onready var _eraser_tool: EraserTool = $EraserTool
 onready var _selection_tool: SelectionTool = $SelectionTool
+onready var _move_tool: MoveTool = $MoveTool
 onready var _active_tool: CanvasTool = _brush_tool
 onready var _strokes_parent: Node2D = $Viewport/Strokes
 onready var _camera: Camera2D = $Viewport/Camera2D
@@ -107,6 +108,9 @@ func use_tool(tool_type: int) -> void:
 		Types.Tool.SELECT:
 			_active_tool = _selection_tool
 			_use_optimizer = false
+		Types.Tool.MOVE:
+			_active_tool = _move_tool
+			_use_optimizer = false
 
 	if prev_tool != _active_tool:
 		prev_tool.enabled = false
@@ -180,6 +184,7 @@ func take_screenshot() -> Image:
 
 # -------------------------------------------------------------------------------------------------
 func start_stroke() -> void:
+	print(get_stack())
 	_current_stroke = BRUSH_STROKE.instance()
 	_current_stroke.size = _brush_size
 	_current_stroke.color = _brush_color

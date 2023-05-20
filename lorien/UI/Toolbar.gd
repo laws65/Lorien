@@ -41,6 +41,7 @@ onready var _tool_btn_circle: TextureButton = $Console/Left/CircleToolButton
 onready var _tool_btn_line: TextureButton = $Console/Left/LineToolButton
 onready var _tool_btn_eraser: TextureButton = $Console/Left/EraserToolButton
 onready var _tool_btn_selection: TextureButton = $Console/Left/SelectionToolButton
+onready var _tool_btn_move: TextureButton = $Console/Left/MoveButton
 
 var _last_active_tool_button: TextureButton
 
@@ -187,3 +188,8 @@ func _change_active_tool_button(btn: TextureButton) -> void:
 # -------------------------------------------------------------------------------------------------
 func get_brush_color_button() -> Control:
 	return _color_button
+
+
+func _on_MoveButton_pressed():
+	_change_active_tool_button(_tool_btn_move)
+	emit_signal("tool_changed", Types.Tool.MOVE)

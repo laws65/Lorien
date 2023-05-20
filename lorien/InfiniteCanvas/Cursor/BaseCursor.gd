@@ -1,5 +1,5 @@
 class_name BaseCursor, "res://Assets/Icons/cursor_icon.png"
-extends Sprite
+extends TextureRect
 
 # -------------------------------------------------------------------------------------------------
 var _brush_size: int
@@ -18,7 +18,7 @@ func _input(event):
 
 # -------------------------------------------------------------------------------------------------
 func _update_position():
-	global_position = _camera.get_global_mouse_position()
+	rect_global_position = get_viewport().get_mouse_position()
 
 # -------------------------------------------------------------------------------------------------
 func set_pressure(pressure: float) -> void:

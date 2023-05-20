@@ -9,7 +9,7 @@
 config_version=4
 
 _global_script_classes=[ {
-"base": "Sprite",
+"base": "TextureRect",
 "class": "BaseCursor",
 "language": "GDScript",
 "path": "res://InfiniteCanvas/Cursor/BaseCursor.gd"
@@ -103,6 +103,16 @@ _global_script_classes=[ {
 "class": "Menubar",
 "language": "GDScript",
 "path": "res://UI/Menubar.gd"
+}, {
+"base": "BaseCursor",
+"class": "MoveCursor",
+"language": "GDScript",
+"path": "res://InfiniteCanvas/Cursor/MoveCursor/MoveCursor.gd"
+}, {
+"base": "CanvasTool",
+"class": "MoveTool",
+"language": "GDScript",
+"path": "res://InfiniteCanvas/MoveTool.gd"
 }, {
 "base": "WindowDialog",
 "class": "NewPaletteDialog",
@@ -204,6 +214,8 @@ _global_script_class_icons={
 "LineTool": "",
 "MainMenu": "",
 "Menubar": "",
+"MoveCursor": "",
+"MoveTool": "",
 "NewPaletteDialog": "",
 "Palette": "",
 "PaletteButton": "",

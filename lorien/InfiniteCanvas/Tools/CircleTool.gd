@@ -58,7 +58,7 @@ func _make_ellipse(pressure: float, step: int, should_draw_circle: bool) -> void
 		r1 = max(r1, r2)
 		r2 = r1
 
-	var dir := (_cursor.global_position -_start_position_top_left);
+	var dir := (_cursor.rect_global_position -_start_position_top_left);
 	var center : Vector2
 
 	if dir.x >= 0 && dir.y >= 0:

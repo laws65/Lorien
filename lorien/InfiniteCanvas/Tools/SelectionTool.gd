@@ -142,7 +142,7 @@ func _paste_strokes(strokes: Array) -> void:
 		top_left.y = min(top_left.y, stroke.top_left_pos.y + stroke.position.y)
 		bottom_right.x = max(bottom_right.x, stroke.bottom_right_pos.x + stroke.position.x)
 		bottom_right.y = max(bottom_right.y, stroke.bottom_right_pos.y + stroke.position.y)
-	var offset := _cursor.global_position - (top_left + (bottom_right - top_left) / 2.0)
+	var offset := _cursor.rect_global_position - (top_left + (bottom_right - top_left) / 2.0)
 	
 	# Duplicate the strokes 
 	var duplicates := []

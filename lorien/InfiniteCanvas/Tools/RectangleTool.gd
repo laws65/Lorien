@@ -33,7 +33,7 @@ func tool_event(event: InputEvent) -> void:
 # -------------------------------------------------------------------------------------------------
 func _make_rectangle(pressure: float) -> void:
 	pressure = pressure_curve.interpolate(pressure)
-	var bottom_right_point := _cursor.global_position
+	var bottom_right_point := _cursor.rect_global_position
 	var height := bottom_right_point.y - _start_position_top_left.y
 	var width := bottom_right_point.x - _start_position_top_left.x
 	var top_right_point := _start_position_top_left + Vector2(width, 0)
